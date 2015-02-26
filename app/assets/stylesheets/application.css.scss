@@ -34,6 +34,10 @@ form{
 
 /* Home */
 
+#home_root {
+  overflow: hidden;
+}
+
 #home{
   padding-bottom: 50px;
 }
@@ -44,9 +48,11 @@ form{
 }
 
 #home .hero{
-  width: 1366px;
-  height: 612px;
+  max-width: 1200px;
+  min-width: 950px;
+  height: 500px;
   background: asset_url("home/shutterstock.png") no-repeat scroll right;
+  background-size: 554px 429px;
   overflow: hidden;
   position: relative;
   letter-spacing: 0.09em;
@@ -58,7 +64,7 @@ form{
   font-size: 40px;
   color: #074E6F;
   text-transform: uppercase;
-  margin: 335px 0px 0px 30px;
+  margin: 220px 0px 0px 2%;
   position: relative;
   z-index: 2;
   letter-spacing: 2px;
@@ -371,7 +377,7 @@ form{
 }
 
 #refer .share-wrap .social-links{
-  width: 250px;
+  width: 260px;
   height: 37px;
   margin: 25px auto 0;
   text-align: center;
