@@ -15,10 +15,12 @@ class UsersController < ApplicationController
 
   def create
     respond_to do |format|
-      if user = User.find_by_email(user_params[:email])
+      email = user_params[:email].downcase.strip
+      if user = User.find_by_email(email)
         format.html { return redirect_to user }
       else
         user = User.new user_params.merge!(
+                email: email,
                 ip_address: request.remote_ip,
                 token: Devise.friendly_token,
                 inviter: User.find_by_token(user_params[:ref])
@@ -28,7 +30,13 @@ class UsersController < ApplicationController
         else
           flash[:error] = 'Invalid email or ip-address'
         end
-        format.html { redirect_to action: :new }
+        format.html {
+          if user_params[:ref]
+            return redirect_to root_url(ref: user_params[:ref])
+          else
+            redirect_to action: :new
+          end
+        }
       end
     end
   end
