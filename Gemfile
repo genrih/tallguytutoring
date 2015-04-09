@@ -34,6 +34,16 @@ gem 'gibbon'
 # Shows cute notifications in frontend
 gem 'frontend_notifier'
 
+group :development do
+  gem 'capistrano',  '~> 3.1'
+  gem 'capistrano-rails', '~> 1.1'
+  gem 'capistrano3-unicorn'
+end
+
+group :production do
+  gem 'unicorn'
+end
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
